@@ -1,13 +1,25 @@
-import { NgModule  } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {HomeComponent} from './page/home/home.component';
 
-
-const routerDeclarer:Routes = [
-    //路由部分交由子模块处理了
+const routerDeclarer : Routes = [
+    {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'home'
+    }, {
+        path: 'home',
+        component: HomeComponent
+    }, {
+        path: '404',
+        loadChildren: './page/notfound/notfound.module#NotfoundModule'
+    }, {
+        path: '**',
+        redirectTo: '404'
+    }
 ]
 @NgModule({
-    imports:[RouterModule.forRoot(routerDeclarer)],
-    exports:[RouterModule],
-
+    imports: [RouterModule.forRoot(routerDeclarer)],
+    exports: [RouterModule]
 })
-export class routerModule{}
+export class routerModule {}

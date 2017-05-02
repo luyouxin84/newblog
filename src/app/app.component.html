@@ -1,4 +1,11 @@
-<h1>
-  {{title}}
-</h1>
-<router-outlet>Loading</router-outlet>
+<div class="_body">
+  <h1>
+    APP TITLE
+    <i class="fa fa-camera-retro fa-lg"></i> fa-lg
+  </h1>
+  <nav class="nav">
+    <a routerLink="/404" routerLinkActive="active">Crisis Center</a>
+    <a routerLink="/home" routerLinkActive="active">Heroes</a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

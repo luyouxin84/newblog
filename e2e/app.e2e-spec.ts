@@ -1,10 +1,10 @@
-import { NewblogPage } from './app.po';
+import { NblogPage } from './app.po';
 
-describe('newblog App', () => {
-  let page: NewblogPage;
+describe('nblog App', () => {
+  let page: NblogPage;
 
   beforeEach(() => {
-    page = new NewblogPage();
+    page = new NblogPage();
   });
 
   it('should display message saying app works', () => {

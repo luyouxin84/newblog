@@ -16,6 +16,6 @@
       "es2016",
       "dom"
     ],
-    "allowJs":true
-  }
+	"allowJs":true  
+	}
 }

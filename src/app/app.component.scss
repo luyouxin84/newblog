@@ -1,0 +1,27 @@
+._body {
+    background-color: #eeeff2;
+    h1 {
+        margin-top: 0;
+    }
+}
+
+.active {
+    color: white;
+}
+
+.nav {
+    a {
+        &:active {
+            text-decoration: none;
+            color: white;
+        }
+        &:link {
+            text-decoration: none;
+            color: white;
+        }
+        &:hover{
+            text-decoration: none;
+            color: white;
+        }
+    }
+}
