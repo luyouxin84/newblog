@@ -9,8 +9,20 @@
     color: white;
 }
 
-.nav {
+.headerbar {
+    height: auto;
+    background-color: #3e474f;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 20px 0 20px 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     a {
+        color: #B2bbbd;
+        font-weight: bold;
         &:active {
             text-decoration: none;
             color: white;
@@ -19,7 +31,7 @@
             text-decoration: none;
             color: white;
         }
-        &:hover{
+        &:hover {
             text-decoration: none;
             color: white;
         }

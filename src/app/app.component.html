@@ -1,11 +1,18 @@
 <div class="_body">
-  <h1>
-    APP TITLE
-    <i class="fa fa-camera-retro fa-lg"></i> fa-lg
-  </h1>
-  <nav class="nav">
-    <a routerLink="/404" routerLinkActive="active">Crisis Center</a>
-    <a routerLink="/home" routerLinkActive="active">Heroes</a>
-  </nav>
+  <div class="headerbar">
+    
+      <a routerLink="/home" routerLinkActive="active">
+      <div>Heroes</div>
+      </a>
+      <a routerLink="/404" routerLinkActive="active">
+      <div>Crisis Center</div>
+      </a>
+    
+  </div>
+
   <router-outlet></router-outlet>
+
+  <div class="footerbar">
+    
+  </div>
 </div>

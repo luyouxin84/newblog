@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {HomeComponent} from './page/home/home.component';
 
 const routerDeclarer : Routes = [
     {
@@ -9,7 +8,7 @@ const routerDeclarer : Routes = [
         redirectTo: 'home'
     }, {
         path: 'home',
-        component: HomeComponent
+        loadChildren:'./page/home/home.module#HomeModule'
     }, {
         path: '404',
         loadChildren: './page/notfound/notfound.module#NotfoundModule'
