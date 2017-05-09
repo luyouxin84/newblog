@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { routerModule } from './router';
 import { HomeModule } from './page/home/home.module';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { HomeModule } from './page/home/home.module';
     HttpModule,
     routerModule,
     HomeModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

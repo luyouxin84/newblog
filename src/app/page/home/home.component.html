@@ -1,3 +1,56 @@
-<div class="headerbar">
-  
+<div class="homebody">
+  <div class="home">
+    <div class="welcome-panel box">
+      <div class="welcome-article">
+        <div class="title main">
+          welcome
+        </div>
+        <div class="content">
+          This is a sample catalog of all the courses we offer. Browse by topic or difficulty. Sign up today and get access to our
+          entire library. Treehouse students get access to workshops, bonus content, conferences, and more.
+        </div>
+        <div class="title sub">
+          welcome
+        </div>
+        <div class="content">
+          This is a sample catalog of all the courses we offer. Browse by topic or difficulty. Sign up today and get access to our
+          entire library. Treehouse students get access to workshops, bonus content, conferences, and more.
+        </div>
+        <div class="_button">
+          button
+        </div>
+      </div>
+      <div class="welcome-img">
+        <img src="assets/img/samp.jpg" alt="">
+      </div>
+    </div>
+    <div class="searchbar box">
+      <i class="fa fa-search" aria-hidden="true"></i>
+      <input type="text" name="" value="search">
+    </div>
+    <div class="section-header">
+      <h2>Courses</h2>
+      <p>Browse courses across an array of topics and disciplines.</p>
+    </div>
+    <div class="box-container">
+      <ng-template ngFor let-item [ngForOf]="content._data" let-i='index'>
+        <div class="box boxlist" #target (click)="clickContent(target)">
+          <div class="_header" ngClass='color{{i}}'>
+            <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+          </div>
+          <div class="news">
+            <article>
+              <p class="author">{{item.author}}</p>
+              <p class="title">{{item.title}}</p>
+              <p class="text">{{item.text}}</p>
+            </article>
+          </div>
+          <div class="entry">
+            <div class="_btn">read</div>
+            <div class="time">{{item.time}}</div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
 </div>
