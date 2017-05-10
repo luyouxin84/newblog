@@ -1,0 +1,43 @@
+@import 'home.component.scss';
+@import '../../bodystyle.scss';
+
+.container{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    .mainbody{
+    overflow: hidden;
+        width: $width;
+        margin-top: 70px;
+        // text-align: center;
+        ._head{
+            display: flex;
+            flex-direction: column;
+            background-color: #4da5a0;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            height: 300px;
+            h3{
+                font-size: 34px;
+                margin: 0;
+            }
+            h5{
+                font-size: 18px;
+                margin: 0;
+                color: #9cd8d4;
+            }
+        }
+        .content{
+            background-color: white;
+            padding:30px;
+            p{
+                margin: 5px 0 5px 0;
+                color: #576366;
+                text-indent: 2em;
+                font-size: 16px;
+                line-height: 24px;
+            }
+        }
+    }
+}

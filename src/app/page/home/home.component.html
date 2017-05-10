@@ -26,7 +26,8 @@
     </div>
     <div class="searchbar box">
       <i class="fa fa-search" aria-hidden="true"></i>
-      <input type="text" name="" value="search">
+      <input class="box" type="text" name="" placeholder="search" (keyup)="checkdirty($event)">
+      <button *ngIf="dirtycheck">提交</button>
     </div>
     <div class="section-header">
       <h2>Courses</h2>
@@ -34,7 +35,7 @@
     </div>
     <div class="box-container">
       <ng-template ngFor let-item [ngForOf]="content._data" let-i='index'>
-        <div class="box boxlist" #target (click)="clickContent(target)">
+        <div class="box boxlist" #target (click)="clickContent(target,item.title)">
           <div class="_header" ngClass='color{{i}}'>
             <i class="fa fa-bookmark-o" aria-hidden="true"></i>
           </div>

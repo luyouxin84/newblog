@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
+import {Router, ActivatedRoute} from "@angular/router";
 
 @Component({selector: 'app-home', templateUrl: './home.component.html', styleUrls: ['./home.component.scss']})
 export class HomeComponent implements OnInit {
   content : obj = new obj();
-  constructor() {}
+  dirtycheck:boolean = false;
+  constructor( private _router:Router,private ar:ActivatedRoute) {}
 
   ngOnInit() {
     //生成文字内容
@@ -23,12 +25,20 @@ export class HomeComponent implements OnInit {
     this.content._data =  i;
   }
   //点击动画
-  clickContent(x:any){
+  clickContent(x:any,s:string){
     x.style.position = 'relative';
     x.style.top = '10px';
-    setTimeout(function(){
+    setTimeout(()=>{
       x.style.position = '';
-    },250);
+    this._router.navigate(['read',s], {relativeTo: this.ar})
+    },100);
+  }
+  checkdirty(x:any){
+    if( x.srcElement.value.length > 0){
+      this.dirtycheck = true;
+    }else {
+      this.dirtycheck = false;
+    }
   }
 
 }
