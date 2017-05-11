@@ -1,0 +1,77 @@
+.mainBody {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.container {
+    // 这里的路径基于当前scss位置
+    background-image: url(../../../assets/img/loginback.svg);
+    background-repeat: repeat;
+    background-color: rgba(95, 207, 128, 0.3);
+    width: 100%;
+}
+
+.loginwindow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 30px 0 30px 0;
+}
+
+.describe {
+    color: white;
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.login-input {
+    flex-grow: 1;
+    overflow: hidden;
+    background-color: white;
+    margin: 20px;
+    .box-header {
+        text-align: center;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: #637791;
+        padding: 20px ;
+    }
+}
+
+.box {
+    border-radius: 5px;
+}
+.input-area{
+    padding: 40px;
+    label{
+        font-weight: bold;
+        font-size: 18px;
+    }
+    input{
+        width: 100%;
+        border: 2px solid #d6d8dc;
+        padding:10px 0 10px 0;
+        border-radius: 5px;
+        outline: none;
+        &:focus{
+            border-color: #637791;
+        }
+    }
+    #input-pass{
+        margin-top: 30px;
+    }
+    .confirmButton{
+        border-top: 1px solid #d6d8dc;
+        margin-top: 40px;
+        width: 100%;
+    }
+}
+#btn{
+    background-color: #5fcf81;
+    border: solid 2px #5fcf80;
+}

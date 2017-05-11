@@ -30,7 +30,9 @@ export class HomeComponent implements OnInit {
     x.style.top = '10px';
     setTimeout(()=>{
       x.style.position = '';
-    this._router.navigate(['read',s], {relativeTo: this.ar})
+      // 转码
+      var title_encode = encodeURI(s);
+    this._router.navigate(['read',title_encode], {relativeTo: this.ar})
     },100);
   }
   checkdirty(x:any){

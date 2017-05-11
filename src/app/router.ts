@@ -12,6 +12,10 @@ const routerDeclarer : Routes = [
     }, {
         path: '404',
         loadChildren: './page/notfound/notfound.module#NotfoundModule'
+    }, 
+    {
+        path: 'login',
+        loadChildren: './page/login/login.module#LoginModule'
     }, {
         path: '**',
         redirectTo: '404'
