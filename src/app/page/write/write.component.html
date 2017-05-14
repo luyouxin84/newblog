@@ -1,0 +1,58 @@
+<div class="mainBody">
+  <!--创建工具条，只有butto和select两种-->
+  <div id="toolbar">
+    <button class="ql-bold">Bold</button>
+    <button class="ql-italic">Italic</button>
+    <button class="ql-underline">underline</button>
+    <button class="ql-strike">strike</button>
+    <button (click)="test()">test</button>
+    <button (click)="img()">img</button>
+    <select class="ql-size">
+      <option value="small"></option>
+      <!-- Note a missing, thus falsy value, is used to reset to default -->
+      <option selected></option>
+      <option value="large"></option>
+      <option value="huge"></option>
+    </select>
+    <select class="ql-color"></select>
+    <select class="ql-align"></select>
+    <button class="ql-list" value="ordered">list</button>
+    <button class="ql-list" value="bullet">list</button>
+    <select class="ql-header"></select>
+    <select class="ql-background"></select>
+  </div>
+  <!-- Create the editor container -->
+  <div id="editor">
+    <p>Hello World!</p>
+  </div>
+  <div>
+    <div>保存的文件名</div>
+  </div>
+  <ul>
+    <ng-template ngFor let-item [ngForOf]="uploadList" let-i="index">
+      <li>{{item}}</li>
+    </ng-template>
+  </ul>
+  <kendo-upload [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl" id="upload" (success)="successEventHandler($event)"
+    (error)="errorEventHandler($event)">
+  </kendo-upload>
+  <div class="testdiv">
+
+  </div>
+  <div class="selectImg" *ngIf="showSelectWin">
+    <div class="imgList">
+      <div class="">
+        <ng-template ngFor let-item [ngForOf]="uploadList" let-i="index">
+          <li>{{item}}</li>
+        </ng-template>
+      </div>
+      <div class="win">
+        <input type="text" name="" #inpName value="" placeholder="录入图片的名字">
+      </div>
+      <span>
+        <button  class="btn" (click)="confirm(inpName.value)">使用图片</button>
+        <button  class="close"  (click)="closeSelect()">关闭我</button>
+      </span>
+    </div>
+  </div>
+</div>

@@ -19,7 +19,9 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.scss"
+        "styles.scss",        
+        "./app/page/write/quill.bubble.css",
+        "./app/page/write/quill.snow.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

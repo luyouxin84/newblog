@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { routerModule } from './router';
 import { HomeModule } from './page/home/home.module';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { LoginModule } from './page/login/login.module';
+
+
 
 
 @NgModule({
@@ -19,8 +20,7 @@ import { LoginModule } from './page/login/login.module';
     HttpModule,
     routerModule,
     HomeModule,
-    BrowserAnimationsModule,
-    LoginModule
+    BrowserAnimationsModule,    
   ],
   providers: [],
   bootstrap: [AppComponent]

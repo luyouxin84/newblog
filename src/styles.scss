@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 // 装载font-awesome
 @import 'assets/scss/font-awesome.scss';
+// 转载kendo的默认皮肤
+@import "~@progress/kendo-theme-default/scss/all";
 body{
     padding: 0;
     margin: 0;
