@@ -35,7 +35,7 @@
     </div>
     <div class="box-container">
       <ng-template ngFor let-item [ngForOf]="content._data" let-i='index'>
-        <div class="box boxlist" #target (click)="clickContent(target,item.title)">
+        <div class="box boxlist" #target (click)="clickContent(target,item.id)">
           <div class="_header" ngClass='color{{i}}'>
             <i class="fa fa-bookmark-o" aria-hidden="true"></i>
           </div>
@@ -43,12 +43,12 @@
             <article>
               <p class="author">{{item.author}}</p>
               <p class="title">{{item.title}}</p>
-              <p class="text">{{item.text}}</p>
+              <p class="text">{{item.content}}</p>
             </article>
           </div>
           <div class="entry">
             <div class="_btn">read</div>
-            <div class="time">{{item.time}}</div>
+            <div class="time">{{item.article_time}}</div>
           </div>
         </div>
       </ng-template>

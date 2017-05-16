@@ -56,3 +56,15 @@
         width: 100%;
     }
 }
+.basic-info{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 50px;
+    .container{
+        flex-grow: 1;
+        input{
+            width: 80%;
+        }
+    }
+}

@@ -1,27 +1,33 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit , AfterViewInit} from '@angular/core';
 import {Router, ActivatedRoute} from "@angular/router";
+import { httpHandle } from '../../common_method/http_handle';
+import {Injector} from '@angular/core';
 
 @Component({selector: 'app-home', templateUrl: './home.component.html', styleUrls: ['./home.component.scss']})
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit,AfterViewInit{
   content : obj = new obj();
   dirtycheck:boolean = false;
-  constructor( private _router:Router,private ar:ActivatedRoute) {}
+  _test:any;  
+  constructor( private _router:Router,private ar:ActivatedRoute,private xhr:httpHandle) {}
 
   ngOnInit() {
-    //生成文字内容
-    let j:_type = {
-      title: '外交部回应台湾缺席世卫大会',
-        text: '环球时报-环球网报道 记者 姚丽娟]第70届世界卫生大会报名日期已经截止，台湾方面没有收到与会邀请。台方多次声称，大陆方面借卫生问题对台进行“政治打压”、',
-        author: 'sina',
-        time:'2017年5月9日'
-    };
+    
+  }
+  ngAfterViewInit(){
     let i:_type[]=[];
-    i.push(j);
-    i.push(j);
-    i.push(j);
-    i.push(j);
-    i.push(j);
-    i.push(j);
+    //获取数据
+    this.xhr.fetch_get('https://www.lyxsblog.cn/home_list')
+    .map(res => res.json())
+            .subscribe(res => {
+                console.log(res);
+                for(let j of res){
+                  j.content = j.content.slice(0,85);
+                  i.push(j);
+                }
+            }, err => {
+                console.log(err)
+            }, () => {});
+    
     this.content._data =  i;
   }
   //点击动画
@@ -31,8 +37,7 @@ export class HomeComponent implements OnInit {
     setTimeout(()=>{
       x.style.position = '';
       // 转码
-      var title_encode = encodeURI(s);
-    this._router.navigate(['read',title_encode], {relativeTo: this.ar})
+    this._router.navigate(['read',s], {relativeTo: this.ar})
     },100);
   }
   checkdirty(x:any){
@@ -56,7 +61,11 @@ class obj {
 }
 interface _type {
   title : string,
-  text : string,
+  content : string,
   author?:string,
-  time?:string
+  article_time?:string,
+  title_encodeuri?:string,
+  status?:string,
+  order?:string,
+  id?:string
 }
