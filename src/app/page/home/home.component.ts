@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit,AfterViewInit{
             .subscribe(res => {
                 console.log(res);
                 for(let j of res){
-                  j.content = j.content.slice(0,85);
+                  j.content = j.content.slice(0,65);
                   i.push(j);
                 }
             }, err => {
@@ -59,7 +59,8 @@ class obj {
     this.data = x;
   }
 }
-interface _type {
+
+export interface _type {
   title : string,
   content : string,
   author?:string,

@@ -12,5 +12,12 @@ export class httpHandle {
         return this.http.get(url, options);        
 
     }
+    fetch_post(url : string,body: any, option?: object){
+        let options = {};
+        if (option) 
+            options = option;
+        // 以json为标准
+        return this.http.post(url,body, options);      
+    }
 
 }

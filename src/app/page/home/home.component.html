@@ -43,7 +43,7 @@
             <article>
               <p class="author">{{item.author}}</p>
               <p class="title">{{item.title}}</p>
-              <p class="text">{{item.content}}</p>
+              <p class="text" [innerHTML]="item.content"></p>
             </article>
           </div>
           <div class="entry">

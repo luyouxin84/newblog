@@ -1,81 +1,85 @@
 <div class="mainBody">
-  <div class="basic-info">
-    <div class="container">
-      <label for="inp_title">
+  <form #f="ngForm"   >
+    <div class="basic-info form-group">
+      <div class="container">
+        <label for="inp_title">
         标题
       </label>
-      <input type="text" name="" value="" placeholder="输入标题" id="inp_title">
-    </div>
-    <div class="container">
-      <label for="inp_anchor">
+        <input type="text" name="title" placeholder="输入标题" id="inp_title" [(ngModel)]="user.title" required>
+      </div>
+      <div class="container">
+        <label for="author">
          作者
       </label>
-      <input type="text" name="" value="" placeholder="输入作者" id="inp_anchor">
-    </div>
-    <div class="container">
-      <label for="inp_date">
+        <input type="text" name="author" placeholder="输入作者" id="author" [(ngModel)]="user.author" required >
+      </div>
+      <div class="container">
+        <label for="inp_date">
       文章时间
       </label>
-      <input type="datetime-local" name="" value="" id="inp_date">
+        <input type="datetime-local" name="article_time" [(ngModel)]="user.article_time" id="inp_date" required>
+      </div>
+
     </div>
 
-  </div>
-
-  <!--创建工具条，只有butto和select两种-->
-  <div id="toolbar">
-    <button class="ql-bold">Bold</button>
-    <button class="ql-italic">Italic</button>
-    <button class="ql-underline">underline</button>
-    <button class="ql-strike">strike</button>
-    <button (click)="test()">test</button>
-    <button (click)="img()">img</button>
-    <select class="ql-size">
+    <!--创建工具条，只有butto和select两种-->
+    <div id="toolbar">
+      <button class="ql-bold">Bold</button>
+      <button class="ql-italic">Italic</button>
+      <button class="ql-underline">underline</button>
+      <button class="ql-strike">strike</button>
+      <button (click)="test()">test</button>
+      <button (click)="img()">img</button>
+      <select class="ql-size">
       <option value="small"></option>
       <!-- Note a missing, thus falsy value, is used to reset to default -->
       <option selected></option>
       <option value="large"></option>
       <option value="huge"></option>
     </select>
-    <select class="ql-color"></select>
-    <select class="ql-align"></select>
-    <button class="ql-list" value="ordered">list</button>
-    <button class="ql-list" value="bullet">list</button>
-    <select class="ql-header"></select>
-    <select class="ql-background"></select>
-  </div>
-  <!-- Create the editor container -->
-  <div id="editor">
-    <p>Hello World!</p>
-  </div>
-  <kendo-upload [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl" id="upload" (success)="successEventHandler($event)"
-    (error)="errorEventHandler($event)">
-  </kendo-upload>
-  <div>
-    <div>保存的文件名</div>
-    <ul>
-      <ng-template ngFor let-item [ngForOf]="uploadList" let-i="index">
-        <li>{{item}}</li>
-      </ng-template>
-    </ul>
-  </div>
-  <div class="testdiv">
-
-  </div>
-  <div class="selectImg" *ngIf="showSelectWin">
-    <div class="imgList">
-      <div class="">
-        <p>图片都是插入到当前文章的末尾！！！</p>
+      <select class="ql-color"></select>
+      <select class="ql-align"></select>
+      <button class="ql-list" value="ordered">list</button>
+      <button class="ql-list" value="bullet">list</button>
+      <select class="ql-header"></select>
+      <select class="ql-background"></select>
+    </div>
+    <!-- Create the editor container -->
+    <div id="editor">
+      <p>Hello World!</p>
+    </div>
+    <kendo-upload [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl" id="upload" (success)="successEventHandler($event)"
+      (error)="errorEventHandler($event)">
+    </kendo-upload>
+    <div>
+      <div>保存的文件名</div>
+      <ul>
         <ng-template ngFor let-item [ngForOf]="uploadList" let-i="index">
           <li>{{item}}</li>
         </ng-template>
-      </div>
-      <div class="win">
-        <input type="text" name="" #inpName value="" placeholder="录入图片的名字">
-      </div>
-      <span>
+      </ul>
+    </div>
+    <button class="btn" (click)="onSubmit(f)">Save</button>
+    <div class="testdiv">
+
+    </div>
+    <div class="selectImg" *ngIf="showSelectWin">
+      <div class="imgList">
+        <div class="">
+          <p>图片都是插入到当前文章的末尾！！！</p>
+          <ng-template ngFor let-item [ngForOf]="uploadList" let-i="index">
+            <li>{{item}}</li>
+          </ng-template>
+        </div>
+        <div class="win">
+          <input type="text" name="" #inpName value="" placeholder="录入图片的名字">
+        </div>
+        <span>
         <button  class="btn" (click)="confirm(inpName.value)">使用图片</button>
         <button  class="close"  (click)="closeSelect()">关闭我</button>
       </span>
+      </div>
     </div>
-  </div>
+  </form>
+  
 </div>

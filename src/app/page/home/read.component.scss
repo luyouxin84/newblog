@@ -2,7 +2,7 @@
 @import '../../bodystyle.scss';
 
 .container{
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     .mainbody{
@@ -24,7 +24,7 @@
             }
             h5{
                 font-size: 18px;
-                margin: 0;
+                margin: 5px 0 5px 0;
                 color: #9cd8d4;
             }
         }
@@ -40,4 +40,10 @@
             }
         }
     }
+}
+#content-main{
+    text-indent: 2em;
+    font-size: 15px;
+    text-align: center;
+    overflow: hidden;
 }

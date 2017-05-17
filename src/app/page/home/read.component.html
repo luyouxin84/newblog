@@ -1,18 +1,11 @@
 <div class="container">
   <div class="mainbody box">
     <div class="_head">
-      <h3>title</h3>
-      <h5>anchor time</h5>
+      <h3>{{recive.title}}</h3>
+      <h5>{{recive.author}} {{recive.article_time}}</h5>
     </div>
     <div class="content">
-      <article>
-          <p style="border-bottom: 1px solid #576266">
-              我的意见
-          </p>
-        <p>永恒的心，一如从前 文＼王平如是说 ～ 五月响雷 携着瓢泼大雨 冲冲袭来，匆匆离去( 文章阅读网：www.sanwen.net ) 林荫间残枝败叶 清扫除光 雨后天睛 又见绿影婆娑，白云飘飘 ～ 夏日炎炎 艳阳当空高照 极目所望，五彩斑斓
-          淡淡的稻草泥土 芳香撩人 天地之间 依然不甘寂寞，美丽如斯 ～ 四季更迭 见惯花开花谢 岁月如歌，回肠荡气 只唯爱永不言弃 春去秋来 佳期如梦 痴情不甘沦落，历久弥坚 ～ 不曾想过 未来的某一天 世事沧桑，故人依旧 你是否会想起我
-          永恒的心 一如从前 但愿问心无愧，人生如炬 王平如是说〔原创〕 微信号wangpingak 2017.5.8 海南·海口</p>
-      </article>
+      <div [innerHTML]="recive.content" id="content-main"></div>
     </div>
   </div>
 </div>
