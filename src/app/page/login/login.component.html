@@ -12,21 +12,23 @@
         <div class="box-header">
           Login
         </div>
-        <div class="input-area">
-          <div class="input-name">
-            <label for="userName">Name</label>
-            <br>
-            <input type="text" name="" value="" id="userName">
+        <form #f="ngForm">          
+          <div class="input-area">
+            <div class="input-name">
+              <label for="userName">Name</label>
+              <br>
+              <input type="text" name="name" id="userName" class="input-text" required [(ngModel)]="name">
+            </div>
+            <div class="input-name" id="input-pass">
+              <label for="userPass">Pass</label>
+              <br>
+              <input type="password" name="pass" #pas='ngModel' id="userPass" class="input-text" required [(ngModel)]="pass">
+            </div>
+            <div class="confirmButton">
+              <button type="button" class="box" id="btn" (click)="submit(pas)">Login</button>
+            </div>
           </div>
-          <div class="input-name" id="input-pass">
-            <label for="userPass">Pass</label>
-            <br>
-            <input type="password" name="" value="" id="userPass">
-          </div>
-          <div class="confirmButton">
-            <button type="button" class="box" id="btn">Login</button>
-          </div>
-        </div>
+        </form>
 
       </div>
     </div>

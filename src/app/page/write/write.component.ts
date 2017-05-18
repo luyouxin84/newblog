@@ -13,6 +13,7 @@ export class WriteComponent implements OnInit {
   showSelectWin : boolean = false;
   private chooseImg : string;
   user : any = {};
+  btn_disable:boolean = true;
   constructor(private http : httpHandle) {}
 
   ngOnInit() {
@@ -55,7 +56,7 @@ export class WriteComponent implements OnInit {
   confirm(x : string) {
     this.chooseImg = x;
     console.log(x);
-    this.editor.root.innerHTML += '<p class="content-img"><img src="https://resources.lyxsblog.cn/upload/' + this.chooseImg + '" alt="" style="max-widht:80vw;max-height:80vh;"/></p>';
+    this.editor.root.innerHTML += '<p style="text-align:center"><img src="https://resources.lyxsblog.cn/upload/' + this.chooseImg + '" alt="" style="max-widht:80vw;max-height:80vh;"/></p>';
     this.chooseImg = '';
     this.showSelectWin = false;
   }
@@ -64,7 +65,11 @@ export class WriteComponent implements OnInit {
     if (x.valid === true) {
       this.user.content = this.editor.root.innerHTML;
       let o = JSON.stringify(this.user);
-      console.log(o);
+      this.btn_disable = false;
+      setTimeout(()=> {
+        console.info('十秒激活延时');
+        this.btn_disable = true;
+      }, 10000);
       this.http.fetch_post('https://www.lyxsblog.cn/narticle', o,)
         .map(res => res.json())
         .subscribe(res => {

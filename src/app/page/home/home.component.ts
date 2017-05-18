@@ -8,7 +8,8 @@ export class HomeComponent implements OnInit,AfterViewInit{
   content : obj = new obj();
   dirtycheck:boolean = false;
   _test:any;  
-  constructor( private _router:Router,private ar:ActivatedRoute,private xhr:httpHandle) {}
+  constructor( private _router:Router,private ar:ActivatedRoute,private xhr:httpHandle) {
+  }
 
   ngOnInit() {
     
@@ -19,13 +20,13 @@ export class HomeComponent implements OnInit,AfterViewInit{
     this.xhr.fetch_get('https://www.lyxsblog.cn/home_list')
     .map(res => res.json())
             .subscribe(res => {
-                console.log(res);
                 for(let j of res){
+                  j.content = j.content.trim();
                   j.content = j.content.slice(0,65);
                   i.push(j);
                 }
             }, err => {
-                console.log(err)
+                console.info(err);
             }, () => {});
     
     this.content._data =  i;

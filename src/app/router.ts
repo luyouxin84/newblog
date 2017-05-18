@@ -8,16 +8,14 @@ const routerDeclarer : Routes = [
         redirectTo: 'home'
     }, {
         path: 'home',
-        loadChildren:'./page/home/home.module#HomeModule'
+        loadChildren: './page/home/home.module#HomeModule'
     }, {
         path: '404',
         loadChildren: './page/notfound/notfound.module#NotfoundModule'
-    }, 
-    {
+    }, {
         path: 'login',
         loadChildren: './page/login/login.module#LoginModule'
-    },
-    {
+    }, {
         path: 'write',
         loadChildren: './page/write/write.module#WriteModule'
     }, {
