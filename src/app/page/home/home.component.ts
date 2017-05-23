@@ -2,25 +2,26 @@ import {Component, OnInit , AfterViewInit} from '@angular/core';
 import {Router, ActivatedRoute} from "@angular/router";
 import { httpHandle } from '../../common_method/http_handle';
 import {Injector} from '@angular/core';
+import { AuthInject } from 'app/common_method/auth';
 
 @Component({selector: 'app-home', templateUrl: './home.component.html', styleUrls: ['./home.component.scss']})
 export class HomeComponent implements OnInit,AfterViewInit{
   content : obj = new obj();
   dirtycheck:boolean = false;
   _test:any;  
-  constructor( private _router:Router,private ar:ActivatedRoute,private xhr:httpHandle) {
+  constructor( private _router:Router,private ar:ActivatedRoute,private xhr:httpHandle,private auth:AuthInject) {
   }
 
   ngOnInit() {
-    // jugement if logined
-    console.log(
-      this.ar.params
-      .subscribe(
-        res => {
-          console.log(res);
-        }
-        )
-      )
+    // console.log(
+    //   this.ar.params
+    //   .subscribe(
+    //     res => {
+    //       console.log(res);
+    //     }
+    //     )
+    //   );
+      console.log(this.auth);
   }
   ngAfterViewInit(){
     let i:_type[]=[];

@@ -3,13 +3,15 @@ import {NgModel} from "@angular/forms";
 import * as sjcl from './sjcl.js';
 import { httpHandle } from '../../common_method/http_handle';
 import { Router } from '@angular/router';
+import { AuthInject } from '../../common_method/auth';
 
 @Component({selector: 'app-login', templateUrl: './login.component.html', styleUrls: ['./login.component.scss']})
 export class LoginComponent implements OnInit {
   name : string;
   pass : string;
   private key:string = '';
-  constructor( private _http:httpHandle , private _router:Router) {
+  constructor( private _http:httpHandle , private _router:Router , private auth:AuthInject) {
+    console.log(this.auth);
   }
   @ViewChild('pas')_pass : NgModel;
 
@@ -41,7 +43,10 @@ export class LoginComponent implements OnInit {
     .subscribe(
       res=>{
         if (res.result === 'sucess'){
-          this._router.navigate(["/home",{login:true}])
+          // this._router.navigate(["/home",{login:true}])
+          this.auth.login = true;
+          this._router.navigate(["/home"]);
+          console.log(this.auth.login)
         };
       },
       err =>{
