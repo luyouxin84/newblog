@@ -70,8 +70,12 @@
 }
 form{
     input{
-        &.ng-invalid{
+        &.ng-invalid.ng-touched{
             border: 1px solid red;
         }
     }
+}
+#editor{
+    background-color: white;
+    min-height: 50vh;
 }
