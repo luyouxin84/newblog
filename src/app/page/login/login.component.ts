@@ -2,38 +2,47 @@ import {Component, OnInit, EventEmitter, Output, ViewChild} from '@angular/core'
 import {NgModel} from "@angular/forms";
 import * as sjcl from './sjcl.js';
 import { httpHandle } from '../../common_method/http_handle';
+import { Router } from '@angular/router';
 
-  templateUrl: './login.component.html',
-})
 @Component({selector: 'app-login', templateUrl: './login.component.html', styleUrls: ['./login.component.scss']})
 export class LoginComponent implements OnInit {
-  name:string;
-  pass:string;
-  constructor() { }
-  @ViewChild('pas') _pass:NgModel;
-
-
-  ngOnInit() {
-  }
-  submit(x:any){
-    console.log(x);
+  name : string;
+  pass : string;
+  private key:string = '';
+  constructor( private _http:httpHandle , private _router:Router) {
   }
   @ViewChild('pas')_pass : NgModel;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this._http.fetch_get('https://www.lyxsblog.cn/get_dist_key_login')
+    .map( res => res.json())
+    .subscribe(
+      res => { 
+        this.key = res.cle;
+        // console.log(this.key);
+    },
+      err => { console.info(err)}
+    )
+  }
   submit() {
-    console.log(sjcl['encrypt']);
-    let pass_handel = sjcl['encrypt']("password",this.pass);
-    console.log(pass_handel);
+    if ( this.key == ''){
+      alert('验证服务器无效');
+      return;
+    }
+    // console.log(sjcl['encrypt']);
+    let pass_handel = sjcl['encrypt'](this.key,this.pass);
+    // console.log(pass_handel);
     // it's string
     // console.log(typeof(pass_handel));    
-    var ciphertext = sjcl['encrypt']("password", this.name + pass_handel);
-    console.log(ciphertext);
+    var ciphertext = sjcl['encrypt'](this.key, this.name + pass_handel);
+    // console.log(ciphertext);
     this._http.fetch_post('https://www.lyxsblog.cn/login_up',ciphertext)
     .map( res => res.json())
     .subscribe(
       res=>{
-        console.log(res);
+        if (res.result === 'sucess'){
+          this._router.navigate(["/home",{login:true}])
+        };
       },
       err =>{
         console.info(err)

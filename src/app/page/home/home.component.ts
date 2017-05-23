@@ -12,7 +12,15 @@ export class HomeComponent implements OnInit,AfterViewInit{
   }
 
   ngOnInit() {
-    
+    // jugement if logined
+    console.log(
+      this.ar.params
+      .subscribe(
+        res => {
+          console.log(res);
+        }
+        )
+      )
   }
   ngAfterViewInit(){
     let i:_type[]=[];
