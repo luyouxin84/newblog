@@ -1,0 +1,26 @@
+<div class="_body">
+  <div class="result-detail">
+    <p>搜索结果为{{reciveData.length}}</p>
+  </div>
+  <div class="result-list">
+    <div class="container">
+      <div *ngIf="findout; then thenBlock; else elseBlock"></div>
+      <ng-template #thenBlock>
+          <div>
+              <ng-template let-item ngFor [ngForOf]="reciveData" let-i="index" [ngForTrackBy]="id">
+                <div>
+                    <h5>{{i+1}}</h5>
+                    <article>
+                        <p><strong>{{item.title}}</strong></p>
+                        <p [innerHTML]="item.content.slice(0,400)">
+
+                        </p>
+                    </article>
+                </div>
+              </ng-template>
+          </div>
+      </ng-template>
+      <ng-template #elseBlock>没有找到</ng-template>
+    </div>
+  </div>
+</div>

@@ -26,8 +26,8 @@
     </div>
     <div class="searchbar box">
       <i class="fa fa-search" aria-hidden="true"></i>
-      <input class="box" type="text" name="" placeholder="search" (keyup)="checkdirty($event)">
-      <button *ngIf="dirtycheck">提交</button>
+      <input class="box" type="text" name="" placeholder="search" #searchkw (keyup)="checkdirty($event)">
+      <button *ngIf="dirtycheck" (click)="search(searchkw.value)">提交</button>
     </div>
     <div class="section-header">
       <h2>Courses</h2>

@@ -57,6 +57,11 @@ export class HomeComponent implements OnInit,AfterViewInit{
       this.dirtycheck = false;
     }
   }
+  search(x:string){
+    let i = encodeURI(x);
+    console.log(i);
+    this._router.navigate(['search',i],{relativeTo:this.ar});
+  }
 
 }
 
