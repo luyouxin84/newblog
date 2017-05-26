@@ -6,19 +6,20 @@
     <div class="container">
       <div *ngIf="findout; then thenBlock; else elseBlock"></div>
       <ng-template #thenBlock>
-          <div>
-              <ng-template let-item ngFor [ngForOf]="reciveData" let-i="index" [ngForTrackBy]="id">
-                <div>
-                    <h5>{{i+1}}</h5>
-                    <article>
-                        <p><strong>{{item.title}}</strong></p>
-                        <p [innerHTML]="item.content.slice(0,400)">
-
-                        </p>
-                    </article>
-                </div>
-              </ng-template>
-          </div>
+        <div class="item-list">
+          <ng-template let-item ngFor [ngForOf]="reciveData" let-i="index">
+            <div class="item" (click)="goto(item.id)">
+              <h3>
+                结果{{i+1}}：               
+              <strong>{{item.title}}</strong>
+              </h3>
+              <article>
+                <p [innerHTML]="item.content.slice(0,400)">
+                </p>
+              </article>
+            </div>
+          </ng-template>
+        </div>
       </ng-template>
       <ng-template #elseBlock>没有找到</ng-template>
     </div>

@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit,AfterViewInit{
     //     }
     //     )
     //   );
-      console.log(this.auth);
+      // console.log(this.auth);
   }
   ngAfterViewInit(){
     let i:_type[]=[];

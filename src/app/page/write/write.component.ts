@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import * as Quill from './quill.min.js';
 import {_type} from '../home/home.component';
 import {httpHandle} from '../../common_method/http_handle';
+import { AuthInject } from 'app/common_method/auth';
 
 @Component({selector: 'app-write', templateUrl: './write.component.html', styleUrls: ['./write.component.scss']})
 export class WriteComponent implements OnInit {
@@ -14,7 +15,9 @@ export class WriteComponent implements OnInit {
   private chooseImg : string;
   user : any = {};
   btn_disable:boolean = true;
-  constructor(private http : httpHandle) {}
+  constructor(private http : httpHandle , private auth:AuthInject) {
+    // console.log(this.auth);
+  }
 
   ngOnInit() {
 

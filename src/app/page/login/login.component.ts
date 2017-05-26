@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
   pass : string;
   private key:string = '';
   constructor( private _http:httpHandle , private _router:Router , private auth:AuthInject) {
-    console.log(this.auth);
+    // console.log(this.auth);
   }
   @ViewChild('pas')_pass : NgModel;
 

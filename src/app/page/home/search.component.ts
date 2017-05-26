@@ -1,12 +1,12 @@
 import {Component, AfterViewInit} from '@angular/core';
 import {httpHandle} from '../../common_method/http_handle';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({selector: 'search', templateUrl: './search.component.html', styleUrls: ['./search.component.scss']})
 export class SearchComponent implements AfterViewInit {
     reciveData:type[]=[];
     findout:boolean = false;
-    constructor(private http : httpHandle,private ar:ActivatedRoute) {}
+    constructor(private http : httpHandle,private ar:ActivatedRoute,private _router:Router) {}
     ngAfterViewInit() {
         //索取参数
         let observer = {
@@ -42,6 +42,10 @@ export class SearchComponent implements AfterViewInit {
                 console.info(err);
             }
         );
+    }
+    goto(x:string){
+        console.log(x);
+        this._router.navigate(['read',x], {relativeTo: this.ar.parent})
     }
 
 }

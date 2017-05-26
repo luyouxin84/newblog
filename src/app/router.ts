@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import { AuthWrite } from './common_method/auth.write';
 
 const routerDeclarer : Routes = [
     {
@@ -17,7 +18,8 @@ const routerDeclarer : Routes = [
         loadChildren: './page/login/login.module#LoginModule'
     }, {
         path: 'write',
-        loadChildren: './page/write/write.module#WriteModule'
+        loadChildren: './page/write/write.module#WriteModule',
+        canActivate:[AuthWrite]
     }, {
         path: '**',
         redirectTo: '404'
